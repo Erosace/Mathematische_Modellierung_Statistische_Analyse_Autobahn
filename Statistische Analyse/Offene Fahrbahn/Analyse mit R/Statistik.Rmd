@@ -1,0 +1,20 @@
+---
+title: "MathMod"
+output: html_document
+---
+
+```{r}
+#hier sollten die daten der offenen fahrbahn sein
+neg = read.table("Daten_neg.txt")
+pos = read.table("Daten_pos.txt")
+daten = read.table("ohneGLS.txt")
+rest = read.table("Daten_rest.txt")
+
+arithmean = c(mean(daten$V1),mean(rest$V13),mean(rest$V12),mean(rest$V11),mean(rest$V10),mean(rest$V9),mean(rest$V8),mean(rest$V7),mean(rest$V6),mean(rest$V5),mean(rest$V4),mean(rest$V3),mean(rest$V2),mean(rest$V1),mean(neg$V6),mean(neg$V5),mean(neg$V4),mean(neg$V3),mean(neg$V2),mean(neg$V1),mean(pos$V1),mean(pos$V2),mean(pos$V3),mean(pos$V4),mean(pos$V5),mean(pos$V6))
+
+plot(c(-20:5),arithmean, xlab = "Input value of GLS", ylab = "Mean of circulation time", las=1)
+
+
+std = c(sd(daten$V1),sd(rest$V13),sd(rest$V12),sd(rest$V11),sd(rest$V10),sd(rest$V9),sd(rest$V8),sd(rest$V7),sd(rest$V6),sd(rest$V5),sd(rest$V4),sd(rest$V3),sd(rest$V2),sd(rest$V1),sd(neg$V6),sd(neg$V5),sd(neg$V4),sd(neg$V3),sd(neg$V2),sd(neg$V1),sd(pos$V1),sd(pos$V2),sd(pos$V3),sd(pos$V4),sd(pos$V5),sd(pos$V6))
+plot(c(-20:5),std, xlab = "Input value of GLS", ylab = "Standard deviation of circulation time", las=1)
+```
